@@ -1,2 +1,6 @@
-# design-patterns-in-python
-Design patterns are made in the python programming language.
+# Patrones de diseño en python
+
+Los patrones de diseño son unas técnicas para resolver problemas comunes en el desarrollo de software.
+
+## Patrones
+
