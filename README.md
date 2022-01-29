@@ -6,5 +6,5 @@ Los patrones de diseño son unas técnicas para resolver problemas comunes en el
 ![Propósito](images/proposito.png)
 
 ## Patrones
-* [Strategy](strategy)
+* [Strategy (Estrategia)](strategy/README.md)
 
