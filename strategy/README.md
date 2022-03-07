@@ -25,8 +25,14 @@ ejecución.  Si muchas clases relacionadas se diferencian únicamente por su com
 que almacene el comportamiento común.
 
 ## Ejemplo
-Se desea crear una calculadora simple, donde el contexto que es el que usa la estrategia en este caso sería la calculadora,
-y esta por medio de distintas estrategias resuelve las operaciones.
+Se desea crear una calculadora simple, donde el contexto que es el que usa la estrategia, en este caso sería la calculadora.
+Esta por medio de distintas estrategias resuelve las operaciones.
 Observar que en el caso de tener que crear otro tipo de calculadora que realice alguna o todas las mismas operaciones, 
 sería muy sencillo de implementar y reutilizar código.
+**Aclaración**: Se desea explicar solo el patrón de diseño, por tal motivo, no se esta teniendo en cuenta capturar exepciones 
+por parametros mal pasados para calcular, ni se implementa aceptar *arg o **kwargs para no complicar la explicación.
+
+## Diagrama
+
+![strategy](../images/strategy.png)
 
