@@ -1,6 +1,6 @@
 import unittest
 
-from strategy import Calculator
+from strategy.strategy import Calculator
 
 
 class CalculatorTest(unittest.TestCase):
@@ -20,3 +20,4 @@ class CalculatorTest(unittest.TestCase):
     def test_4_division_calculator(self):
         calculator = Calculator()
         self.assertEqual(calculator.calculate_operation('division', 15, 5), 3)
+
