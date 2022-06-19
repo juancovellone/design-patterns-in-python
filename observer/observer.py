@@ -47,11 +47,13 @@ class Subscriber(Observer):
         Url: {url}
         """)
 
-    def set_name(self, name: str) -> None:
-        self.__name = name
-
-    def get_name(self) -> str:
+    @property
+    def name(self) -> str:
         return self.__name
+
+    @name.setter
+    def name(self, name: str) -> None:
+        self.__name = name
 
 
 class DigitalMagazine(Observable):
