@@ -7,4 +7,4 @@ Los patrones de diseño son unas técnicas para resolver problemas comunes en el
 
 ## Patrones
 * [Strategy (Estrategia)](strategy/README.md)
-
+* [Observer (Observador)](observer/README.md)
