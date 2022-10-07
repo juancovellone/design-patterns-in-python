@@ -1,5 +1,6 @@
 import logging
 from abc import ABC, abstractmethod
+from typing import Dict, Any, List, Union
 
 
 logger = logging.getLogger(__name__)
@@ -11,31 +12,31 @@ class OperationStrategy(ABC):
     """
 
     @abstractmethod
-    def calculate(self, number1, number2):
+    def calculate(self, number1: Union[int, float], number2:  Union[int, float]):
         pass
 
 
 class SumOperationStrategy(OperationStrategy):
 
-    def calculate(self, number1, number2):
+    def calculate(self, number1: Union[int, float], number2:  Union[int, float]):
         return number1 + number2
 
 
 class SubtractionOperationStrategy(OperationStrategy):
 
-    def calculate(self, number1, number2):
+    def calculate(self, number1: Union[int, float], number2:  Union[int, float]):
         return number1 - number2
 
 
 class MultiplicationOperationStrategy(OperationStrategy):
 
-    def calculate(self, number1, number2):
+    def calculate(self, number1: Union[int, float], number2:  Union[int, float]):
         return number1 * number2
 
 
 class DivisionOperationStrategy(OperationStrategy):
 
-    def calculate(self, number1, number2):
+    def calculate(self, number1: Union[int, float], number2:  Union[int, float]):
         try:
             return number1 / number2
         except ZeroDivisionError as e:
@@ -44,7 +45,7 @@ class DivisionOperationStrategy(OperationStrategy):
 
 
 class Calculator:
-    OPERATION_TYPE = {
+    OPERATION_TYPE: Dict[str, Any] = {
         'sum': SumOperationStrategy(),
         'subtraction': SubtractionOperationStrategy(),
         'multiplication': MultiplicationOperationStrategy(),
@@ -52,10 +53,10 @@ class Calculator:
     }
 
     def __init__(self):
-        self.__operation = None
-        self.__last_result = None
+        self.__operation: Union[str, None] = None
+        self.__last_result: Union[int, float, None] = None
 
-    def calculate(self, number1, number2):
+    def calculate(self, number1: Union[int, float], number2:  Union[int, float]):
         """
         Performs the calculation according to the chosen operation.
         :return: None
@@ -88,7 +89,7 @@ class Calculator:
             self.__operation = None
             logger.error(f"The {operation_type} operation can't be resolved.")
 
-    def calculate_operation(self, operation_type, number1, number2):
+    def calculate_operation(self, operation_type, number1: Union[int, float], number2:  Union[int, float]):
         """
         Perform the calculation of the operation.
         :return: int
@@ -101,7 +102,7 @@ if __name__ == '__main__':
     calculator = Calculator()
     number1 = 15
     number2 = 5
-    operations = ['sum', 'subtraction', 'multiplication', 'division']
+    operations: List[str] = ['sum', 'subtraction', 'multiplication', 'division']
     for operation in operations:
         print(f'The result of {operation} operation between {number1} and {number2} '
               f'is: {calculator.calculate_operation(operation, number1, number2)}.')
