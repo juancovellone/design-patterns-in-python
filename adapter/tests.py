@@ -1,21 +1,23 @@
 import unittest
 
-from adapter.adapter import NewLibrary, OldLibrary, Adapter
+from descriptor.descriptor import MyClass
 
 
-class AdapterTest(unittest.TestCase):
+class DescriptorTest(unittest.TestCase):
 
-    def test1_add_method_get_description(self):
-        # The adapter adds the method description
-        library = NewLibrary()
-        with self.assertRaises(AttributeError):
-            library.get_description()
-        library = Adapter()
-        self.assertTrue(bool(library.get_description()))
+    def test1_init_lower_name(self):
+        # Test if when it is saved from the init it is saved in lowercase.
+        name: str = 'MyName'
+        my_class = MyClass(name)
+        self.assertNotEqual(name, my_class.name)
+        self.assertEqual(name.lower(), my_class.name)
 
-    def test2_adapter_get_description(self):
-        # The adapter returns the same as the old library.
-        old_library = OldLibrary()
-        adapter = Adapter()
-        self.assertNotEqual(old_library.get_description(), adapter.description())
-        self.assertEqual(old_library.get_description(), adapter.get_description())
+    def test2_set_lower_name(self):
+        # Test if when it is saved from the setter it is saved in lowercase.
+        name: str = ''
+        my_class = MyClass(name)
+        self.assertEqual(name, my_class.name)
+        name = 'MyName'
+        my_class.name = name
+        self.assertNotEqual(name, my_class.name)
+        self.assertEqual(name.lower(), my_class.name)
