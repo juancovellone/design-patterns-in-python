@@ -12,3 +12,4 @@ Los patrones de diseño son unas técnicas para resolver problemas comunes en el
 * [Observer (Observador)](observer/)
 * [Decorator (Decorador)](decorator/)
 * [Adapter (Adaptador)](adapter/)
+* [Descriptor (Descriptor)](descriptor/)
